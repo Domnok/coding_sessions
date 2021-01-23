@@ -8,56 +8,52 @@ Project Description
 
 # Input
 '''Get Hours worked, Number of Hours, Pay Rate, State/Fed Tax Witholding'''
+
 # Hours must be int
 
-Hours = int(input("Number of Hours: "))
+hours = int(input("Number of Hours: "))
 
 # Pay
 
-Pay_Rate = float(input("Pay Rate: "))
+pay_rate = float(input("Pay Rate: "))
 
 # Federal tax withholding must be float
 
-Fed_Tax = float(input("Enter Federal Tax Rate In Decimal: "))
+fed_tax = float(input("Enter Federal Tax Rate In Decimal: "))
 
 
 # State tax withholding must be float
 
-State_Tax = float(input("Enter State Tax Rate In Decimal: "))
-
-if State_Tax and Fed_Tax != float:
-	print("Error State_Tax and Fed_Tax Must Be Decimal Format")
-	exit()
-
+state_tax = float(input("Enter State Tax Rate In Decimal: "))
 
 
 # Compute
 
-# NetPay = (Pay_Rate * Hours) * (Fed_Tax + State_Tax)
+# NetPay = (pay_rate * Hours) * (fed_tax + state_tax)
 
 # Gross pay: Hours * Pay
 
-GrossPay = Hours * Pay_Rate
+gross_pay = hours * pay_rate
 
-# TaxBill: GrossPay * (Fed_Tax + State_Tax)
+# TaxBill: gross_pay * (fed_tax + state_tax)
 
-TaxBill = GrossPay * (Fed_Tax + State_Tax)
+tax_bill = gross_pay * (fed_tax + state_tax)
 
-# NetPay: GrossPay - TaxBill
+# NetPay: gross_pay - tax_bill
 
-NetPay = GrossPay - TaxBill
+net_pay = gross_pay - tax_bill
+
 
 # Output
-print("GrossPay: ")
-print(GrossPay)
 
-print("TaxBill: ")
-print(TaxBill)
+print('Hours: {0}Hrs'.format(hours))
 
-print("NetPay: ")
-print(NetPay)
-# Dispaly net pay
+print('Pay: {0}/Hr'.format(pay_rate))
+
+print('Gross Pay: ${0}'.format(gross_pay))
+
+print('Tax Bill: ${0}'.format(tax_bill))
+
+print('Net Pay: ${0}'.format(net_pay))
 
 # Error
-if State_Tax and Fed_Tax != float:
-	print("Error State_Tax and Fed_Tax Must Be Decimal Format")
