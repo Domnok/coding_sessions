@@ -1,31 +1,65 @@
-'''
-Project Title
-
-Project Date
-
-Project Description
-'''
 
 # Input
 '''Get Hours worked, Number of Hours, Pay Rate, State/Fed Tax Witholding'''
 
 # Hours must be int
 
-hours = int(input("Number of Hours: "))
+try: 
+	hours = float(input("Number of Hours: "))
+
+except ValueError as err:
+	print("INFO: Hours must be a number")
+	print('DEBUG: {0}'.format(err))
+	exit()
+except Exception as err:
+	print("Oops!, something went wrong.")
+	print('DEBUG: {0}'.format(err))
+	exit() 
+
+
 
 # Pay
-
-pay_rate = float(input("Pay Rate: "))
+try:
+	pay_rate = float(input("Dollars per hour: "))
+except ValueError as err:
+	print("INFO: Dollars per hour must be a number.")
+	print('DEBUG: {0}'.format(err))
+	exit()
+except Exception as err:
+	print("Oops!, something went wrong.")
+	print('DEBUG: {0}'.format(err))
+	exit()
 
 # Federal tax withholding must be float
+try:
+	fed_tax_percent = float(input("Enter Federal Tax Rate As %: "))
+	fed_tax = fed_tax_percent / 100
+except ValueError as err:
+	print("INFO: Federal Tax Rate Must be a number greater than 0.")
+	print('DEBUG: {0}'.format(err))
+	exit()
+except Exception as err:
+	print("Oops!, something went wrong.")
+	print('DEBUG: {0}'.format(err))
+	exit()
 
-fed_tax = float(input("Enter Federal Tax Rate In Decimal: "))
+
+
 
 
 # State tax withholding must be float
 
-state_tax = float(input("Enter State Tax Rate In Decimal: "))
-
+try:
+	state_tax_percent = float(input("Enter State Tax Rate As %: "))
+	state_tax = state_tax_percent / 100
+except ValueError as err:
+	print("INFO: State Tax Rate Must be a number greater than 0.")
+	print('DEBUG: {0}'.format(err))
+	exit()
+except Exception as err:
+	print("Oops!, something went wrong.")
+	print('DEBUG: {0}'.format(err))
+	exit()
 
 # Compute
 
@@ -48,12 +82,12 @@ net_pay = gross_pay - tax_bill
 
 print('Hours: {0}Hrs'.format(hours))
 
-print('Pay: {0}/Hr'.format(pay_rate))
+print('Pay: {0:.2f}/Hr'.format(pay_rate))
 
-print('Gross Pay: ${0}'.format(gross_pay))
+print('Gross Pay: ${0:.2f}'.format(gross_pay))
 
-print('Tax Bill: ${0}'.format(tax_bill))
+print('Tax Bill: ${0:.2f}'.format(tax_bill))
 
-print('Net Pay: ${0}'.format(net_pay))
-
+print('Net Pay: ${0:.2f}'.format(net_pay))
 # Error
+'''When entering numbers with spaces error: "cd: string not in pwd: -5" '''
